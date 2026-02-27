@@ -6,36 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;
-      cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="6" fill="pink"/></svg>') 12 12, auto}
-    body{background:#12050f;color:#ffe4f2;overflow-x:hidden}
+      cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="6" fill="purple"/></svg>') 12 12, auto}
+    body{background:#0b0216;color:#efe6ff;overflow-x:hidden}
 
-    header{position:fixed;top:0;width:100%;background:rgba(18,5,15,.8);backdrop-filter:blur(12px);
+    header{position:fixed;top:0;width:100%;background:rgba(11,2,22,.85);backdrop-filter:blur(12px);
       padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999}
-    nav a{color:#ffe4f2;text-decoration:none;margin-left:14px;font-size:14px}
-    nav a:hover{color:#f472b6;text-shadow:0 0 10px #f472b6}
+    nav a{color:#efe6ff;text-decoration:none;margin-left:14px;font-size:14px}
+    nav a:hover{color:#c084fc;text-shadow:0 0 10px #c084fc}
 
+    /* sakura */
     .sakura{position:fixed;top:-10%;font-size:18px;opacity:.9;animation: fall linear infinite;z-index:0;pointer-events:none}
     @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.7}}
 
     .hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
       text-align:center;padding:20px;overflow:hidden;
       background:
-        radial-gradient(circle at 20% 20%, rgba(249,168,212,.2), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(251,113,133,.2), transparent 40%),
-        linear-gradient(180deg,#12050f,#2a0b1e)}
+        radial-gradient(circle at 20% 20%, rgba(192,132,252,.22), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(168,85,247,.22), transparent 40%),
+        linear-gradient(180deg,#0b0216,#1a0430)}
     .glow-ring{position:absolute;width:420px;height:420px;border-radius:50%;
-      border:2px solid rgba(249,168,212,.45);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
+      border:2px solid rgba(192,132,252,.5);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
     @keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
 
+    /* glitch title */
     .brand-big{
-      font-size:3em;font-weight:900;letter-spacing:3px;color:#f472b6;position:relative;
-      text-shadow:0 0 25px rgba(249,168,212,.9),0 0 60px rgba(251,113,133,.5);
+      font-size:3em;font-weight:900;letter-spacing:3px;color:#c084fc;position:relative;
+      text-shadow:0 0 25px rgba(192,132,252,.9),0 0 60px rgba(168,85,247,.5);
     }
     .brand-big::before,.brand-big::after{
       content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;
     }
-    .brand-big::before{color:#ff5fb3;transform:translate(2px,-2px);animation: glitch 2s infinite}
-    .brand-big::after{color:#ff9ad5;transform:translate(-2px,2px);animation: glitch 1.5s infinite}
+    .brand-big::before{color:#a855f7;transform:translate(2px,-2px);animation: glitch 2s infinite}
+    .brand-big::after{color:#d8b4fe;transform:translate(-2px,2px);animation: glitch 1.5s infinite}
     @keyframes glitch{
       0%{clip-path:inset(0 0 80% 0)}20%{clip-path:inset(10% 0 60% 0)}
       40%{clip-path:inset(40% 0 20% 0)}60%{clip-path:inset(20% 0 40% 0)}
@@ -43,22 +45,23 @@
     }
 
     .section{padding:110px 20px 80px;max-width:1000px;margin:auto;position:relative;z-index:1}
-    h2{text-align:center;margin-bottom:20px;color:#f472b6;text-shadow:0 0 10px rgba(249,168,212,.7)}
+    h2{text-align:center;margin-bottom:20px;color:#c084fc;text-shadow:0 0 10px rgba(192,132,252,.7)}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
-      padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(249,168,212,.25)}
+      padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(192,132,252,.25)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
     .box{background:rgba(255,255,255,.1);padding:18px;border-radius:14px;text-align:center}
 
     .quote-card{max-width:700px;margin:30px auto 0;padding:28px 24px;border-radius:18px;
-      background:rgba(255,255,255,.1);box-shadow:0 0 25px rgba(249,168,212,.35)}
-    footer{background:#12050f;padding:25px 15px;color:#fbcfe8;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
-    .footer-big{font-size:1.4em;font-weight:800;color:#f472b6;text-shadow:0 0 20px rgba(249,168,212,.7)}
+      background:rgba(255,255,255,.1);box-shadow:0 0 25px rgba(192,132,252,.35)}
+
+    footer{background:#0b0216;padding:25px 15px;color:#e9d5ff;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
+    .footer-big{font-size:1.4em;font-weight:800;color:#c084fc;text-shadow:0 0 20px rgba(192,132,252,.7)}
   </style>
 </head>
 <body>
 
 <header>
-  <div style="font-weight:800;color:#f472b6">Website by Sianfrey</div>
+  <div style="font-weight:800;color:#c084fc">Website by Sianfrey</div>
   <nav>
     <a href="#home">Home</a>
     <a href="#profil">Profil</a>
