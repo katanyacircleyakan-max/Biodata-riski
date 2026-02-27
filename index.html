@@ -4,147 +4,67 @@
   <meta charset="UTF-8" />
   <title>Biodata M. Riski Kurniawan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- CSS -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth}
+    body{background:#0b0f1a;color:#e5e7eb;overflow-x:hidden}
 
-    body {
-      background: #0f172a;
-      color: #e5e7eb;
-    }
+    /* floating particles */
+    .float{position:fixed;width:10px;height:10px;border-radius:50%;
+      background: radial-gradient(circle,#7dd3fc,#6366f1,transparent);
+      filter: blur(1px);opacity:.6;animation: float 14s linear infinite;z-index:0}
+    .f1{left:10%;animation-duration:18s}.f2{left:35%;animation-duration:22s}
+    .f3{left:60%;animation-duration:16s}.f4{left:85%;animation-duration:20s}
+    @keyframes float{from{bottom:-20px}to{bottom:110%}}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
-    }
+    header{position:fixed;top:0;width:100%;background:rgba(11,15,26,.75);
+      backdrop-filter:blur(12px);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999}
+    nav a{color:#e5e7eb;text-decoration:none;margin-left:14px;font-size:14px}
+    nav a:hover{color:#7dd3fc;text-shadow:0 0 10px #7dd3fc}
 
-    .logo {
-      color: #38bdf8;
-      font-weight: bold;
-    }
+    .hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+      text-align:center;padding:20px;overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(125,211,252,.15), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(99,102,241,.15), transparent 40%),
+        linear-gradient(180deg,#020617,#0b0f1a)}
+    .glow-ring{position:absolute;width:420px;height:420px;border-radius:50%;
+      border:2px solid rgba(125,211,252,.35);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.08);opacity:.9}}
 
-    nav a {
-      color: #e5e7eb;
-      text-decoration: none;
-      margin-left: 14px;
-      font-size: 14px;
-    }
+    .brand-big{font-size:3.2em;font-weight:900;letter-spacing:3px;color:#7dd3fc;
+      text-shadow:0 0 25px rgba(125,211,252,.8),0 0 60px rgba(99,102,241,.4);animation: glowIn 1.2s ease-out both;z-index:1}
+    @keyframes glowIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .hero h1{margin-top:10px;font-size:1.6em;z-index:1}
+    .hero p{opacity:.9;z-index:1}
+    .hero button{margin-top:20px;padding:12px 26px;border-radius:999px;border:none;
+      background:linear-gradient(135deg,#7dd3fc,#6366f1);color:#020617;font-weight:800;cursor:pointer;z-index:1;
+      box-shadow:0 10px 30px rgba(99,102,241,.35)}
 
-    nav a:hover {
-      color: #38bdf8;
-    }
+    .section{padding:110px 20px 80px;max-width:1000px;margin:auto;position:relative;z-index:1}
+    .section.dark{background:linear-gradient(180deg,#020617,#020617aa)}
+    h2{text-align:center;margin-bottom:20px;color:#7dd3fc;text-shadow:0 0 10px rgba(125,211,252,.6)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(125,211,252,.18), inset 0 0 30px rgba(99,102,241,.08);
+      backdrop-filter: blur(6px)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .box{background:rgba(255,255,255,.06);padding:18px;border-radius:14px;text-align:center}
 
-    .hero {
-      height: 100vh;
-      background: radial-gradient(circle at top, #020617, #020617);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
+    .quotes{text-align:center}
+    .quote-card{max-width:700px;margin:30px auto 0;padding:28px 24px;border-radius:18px;
+      background:rgba(255,255,255,.06);box-shadow:0 0 25px rgba(125,211,252,.25);transition:.3s}
+    .quote-card p{font-size:1.2em;font-style:italic;line-height:1.6}
 
-    .hero h1 {
-      font-size: 2.2em;
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
-
-    .hero button {
-      margin-top: 20px;
-      padding: 12px 26px;
-      border-radius: 999px;
-      border: none;
-      background: #38bdf8;
-      color: #020617;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .section {
-      padding: 110px 20px 80px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section.dark {
-      background: #020617;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #38bdf8;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 18px;
-      border-radius: 14px;
-      text-align: center;
-    }
-
-    .quotes {
-      text-align: center;
-    }
-
-    .quote-card {
-      max-width: 700px;
-      margin: 30px auto 0;
-      padding: 28px 24px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
-      transition: opacity 0.3s ease;
-    }
-
-    .quote-card p {
-      font-size: 1.2em;
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #020617;
-      text-align: center;
-      padding: 20px;
-      color: #9ca3af;
-    }
+    footer{background:#020617;padding:25px 15px;color:#9ca3af;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
+    .footer-big{font-size:1.4em;font-weight:800;color:#7dd3fc;text-shadow:0 0 20px rgba(125,211,252,.5)}
   </style>
 </head>
 <body>
 
+<!-- floating decorations -->
+<div class="float f1"></div><div class="float f2"></div><div class="float f3"></div><div class="float f4"></div>
+
 <header>
-  <div class="logo">Website by Sianfrey</div>
+  <div style="font-weight:800;color:#7dd3fc">Website by Sianfrey</div>
   <nav>
     <a href="#home">Home</a>
     <a href="#profil">Profil</a>
@@ -157,6 +77,8 @@
 </header>
 
 <section id="home" class="hero">
+  <div class="glow-ring"></div>
+  <div class="brand-big">WEBSITE BY SIANFREY</div>
   <h1 id="typing"></h1>
   <p>Website personal profesional milik M. Riski Kurniawan</p>
   <button onclick="scrollToSection('profil')">Mulai Jelajah</button>
@@ -168,7 +90,7 @@
     <p><b>Nama:</b> M. Riski Kurniawan</p>
     <p><b>Domisili:</b> Wonokusumo, Surabaya</p>
     <p><b>Status:</b> Pelajar SMK PGRI 6 Surabaya</p>
-    <p><b>Bio:</b> Pelajar yang tertarik dengan dunia IT, website, dan pengembangan aplikasi. Aktif belajar coding lewat HP menggunakan Ubuntu & Termux.</p>
+    <p><b>Bio:</b> Pelajar yang tertarik dengan dunia IT, website, dan pengembangan aplikasi.</p>
   </div>
 </section>
 
@@ -177,7 +99,7 @@
   <div class="grid">
     <div class="box">
       <h3>SMP Islam Lilwathon – Surabaya</h3>
-      <p>Mulai tertarik pada teknologi dan komputer.</p>
+      <p>aku dulu Sekolah di SMP Islam lilwathon guru yang paling aku sukai di SMP ialah buk Anik dan teman paling sukai ialah Fahri manunggal</p>
     </div>
     <div class="box">
       <h3>SMK PGRI 6 Surabaya</h3>
@@ -187,9 +109,9 @@
 </section>
 
 <section id="pengalaman" class="section">
-  <h2>Pengalaman & Pembelajaran</h2>
+  <h2>Pengalaman & Cerita</h2>
   <div class="card">
-    <p>Pernah melakukan kesalahan di masa SMP karena ikut-ikutan teman. Dari situ belajar pentingnya memilih pergaulan yang baik dan sekarang fokus memperbaiki diri serta konsisten belajar.</p>
+    <p>aku dulu pernah ikut gang bersama temen temen ku dan aku menjadi ketua di sana</p>
   </div>
 </section>
 
@@ -207,47 +129,26 @@
 
 <section id="quotes" class="section quotes">
   <h2>Quotes Hari Ini</h2>
-  <div class="quote-card">
-    <p id="quoteText">Loading...</p>
-    <span>— Website by Sianfrey</span>
-  </div>
+  <div class="quote-card"><p id="quoteText">Loading...</p><span>— Website by Sianfrey</span></div>
 </section>
 
 <section id="kontak" class="section">
   <h2>Kontak</h2>
   <div class="card">
-    <p>📧 Email: -</p>
-    <p>📱 WhatsApp: -</p>
-    <p>🌐 GitHub: -</p>
+    <p>📧 Email: -</p><p>📱 WhatsApp: -</p><p>🌐 GitHub: -</p>
   </div>
 </section>
 
 <footer>
-  <p>Website ini dibuat oleh M RISKI KURNIAWAN GANTENG 😎😎😎🥶</p>
+  <div class="footer-big">Website ini di buat oleh Riski Kurniawan</div>
+  <div class="footer-big">Website by Sianfrey</div>
 </footer>
 
-<!-- JavaScript -->
 <script>
-  // Typing effect
-  const text = "Halo, saya M. Riski Kurniawan 👋";
-  let index = 0;
-  const typingEl = document.getElementById("typing");
-
-  function typingEffect() {
-    if (index < text.length) {
-      typingEl.textContent += text.charAt(index);
-      index++;
-      setTimeout(typingEffect, 80);
-    }
-  }
-  typingEffect();
-
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-  }
-
-  // Quotes dinamis
-  const quotes = [
+  const text="Halo, saya M. Riski Kurniawan 👋";let i=0;const typingEl=document.getElementById("typing");
+  (function typing(){if(i<text.length){typingEl.textContent+=text.charAt(i++);setTimeout(typing,70)}})();
+  function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+  const quotes=[
     "Disiplin hari ini adalah kemewahan di masa depan.",
     "Yang terlihat sederhana, sering kali dibangun dengan usaha yang luar biasa.",
     "Diam-diam belajar, tiba-tiba jadi jago.",
@@ -256,22 +157,9 @@
     "Mimpi besar dimulai dari langkah kecil yang tidak pernah berhenti.",
     "Keren itu bukan gaya, tapi proses."
   ];
-
-  let qIndex = 0;
-  const quoteText = document.getElementById("quoteText");
-
-  function changeQuote() {
-    const card = document.querySelector(".quote-card");
-    card.style.opacity = 0.2;
-    setTimeout(() => {
-      quoteText.textContent = quotes[qIndex];
-      card.style.opacity = 1;
-      qIndex = (qIndex + 1) % quotes.length;
-    }, 300);
-  }
-
-  changeQuote();
-  setInterval(changeQuote, 4000);
+  let qi=0;const qt=document.getElementById("quoteText");
+  function changeQuote(){qt.style.opacity=0;setTimeout(()=>{qt.textContent=quotes[qi];qt.style.opacity=1;qi=(qi+1)%quotes.length},300)}
+  changeQuote();setInterval(changeQuote,4000);
 </script>
 
 </body>
