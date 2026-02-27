@@ -5,17 +5,17 @@
   <title>Biodata M. Riski Kurniawan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="6" fill="pink"/></svg>') 12 12, auto}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;
+      cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="6" fill="pink"/></svg>') 12 12, auto}
     body{background:#12050f;color:#ffe4f2;overflow-x:hidden}
 
-    /* sakura */
-    .sakura{position:fixed;top:-10%;font-size:18px;opacity:.9;animation: fall linear infinite;z-index:0;pointer-events:none}
-    @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.7}}
-
-    header{position:fixed;top:0;width:100%;background:rgba(18,5,15,.75);backdrop-filter:blur(12px);
+    header{position:fixed;top:0;width:100%;background:rgba(18,5,15,.8);backdrop-filter:blur(12px);
       padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999}
     nav a{color:#ffe4f2;text-decoration:none;margin-left:14px;font-size:14px}
     nav a:hover{color:#f472b6;text-shadow:0 0 10px #f472b6}
+
+    .sakura{position:fixed;top:-10%;font-size:18px;opacity:.9;animation: fall linear infinite;z-index:0;pointer-events:none}
+    @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.7}}
 
     .hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
       text-align:center;padding:20px;overflow:hidden;
@@ -27,28 +27,30 @@
       border:2px solid rgba(249,168,212,.45);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
     @keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
 
-    /* glitch neon title */
     .brand-big{
-      font-size:3.2em;font-weight:900;letter-spacing:3px;color:#f472b6;position:relative;
+      font-size:3em;font-weight:900;letter-spacing:3px;color:#f472b6;position:relative;
       text-shadow:0 0 25px rgba(249,168,212,.9),0 0 60px rgba(251,113,133,.5);
-      animation: glowIn 1.2s ease-out both;
     }
     .brand-big::before,.brand-big::after{
-      content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;clip-path:inset(0 0 50% 0)
+      content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;
     }
-    .brand-big::before{color:#ff5fb3;transform:translate(2px,-2px);animation: glitch 2s infinite linear alternate}
-    .brand-big::after{color:#ff9ad5;transform:translate(-2px,2px);animation: glitch 1.5s infinite linear alternate}
+    .brand-big::before{color:#ff5fb3;transform:translate(2px,-2px);animation: glitch 2s infinite}
+    .brand-big::after{color:#ff9ad5;transform:translate(-2px,2px);animation: glitch 1.5s infinite}
     @keyframes glitch{
       0%{clip-path:inset(0 0 80% 0)}20%{clip-path:inset(10% 0 60% 0)}
       40%{clip-path:inset(40% 0 20% 0)}60%{clip-path:inset(20% 0 40% 0)}
       80%{clip-path:inset(60% 0 10% 0)}100%{clip-path:inset(80% 0 0 0)}
     }
-    @keyframes glowIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
 
     .section{padding:110px 20px 80px;max-width:1000px;margin:auto;position:relative;z-index:1}
     h2{text-align:center;margin-bottom:20px;color:#f472b6;text-shadow:0 0 10px rgba(249,168,212,.7)}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
       padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(249,168,212,.25)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .box{background:rgba(255,255,255,.1);padding:18px;border-radius:14px;text-align:center}
+
+    .quote-card{max-width:700px;margin:30px auto 0;padding:28px 24px;border-radius:18px;
+      background:rgba(255,255,255,.1);box-shadow:0 0 25px rgba(249,168,212,.35)}
     footer{background:#12050f;padding:25px 15px;color:#fbcfe8;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
     .footer-big{font-size:1.4em;font-weight:800;color:#f472b6;text-shadow:0 0 20px rgba(249,168,212,.7)}
   </style>
@@ -73,6 +75,50 @@
   <h1 id="typing"></h1>
 </section>
 
+<section id="profil" class="section">
+  <h2>Profil</h2>
+  <div class="card">
+    <p>Nama saya M. Riski Kurniawan.</p>
+    <p>Saya tinggal di Wonokusumo gang lebar.</p>
+    <p>Saya alumni sekolah SMP Islam lilwathon Surabaya.</p>
+    <p>Sekarang saya sekolah di SMK PGRI 6 Surabaya.</p>
+  </div>
+</section>
+
+<section id="pendidikan" class="section">
+  <h2>Info Sekolah SMP</h2>
+  <div class="card">
+    <p>aku dulu Sekolah di SMP Islam lilwathon guru yang paling aku sukai di SMP ialah buk Anik dan teman paling sukai ialah Fahri manunggal</p>
+  </div>
+</section>
+
+<section id="pengalaman" class="section">
+  <h2>Pengalaman</h2>
+  <div class="card">
+    <p>aku dulu pernah ikut gang bersama temen temen ku dan aku menjadi ketua di sana</p>
+  </div>
+</section>
+
+<section id="skill" class="section">
+  <h2>Skill</h2>
+  <div class="grid">
+    <div class="box">HTML Dasar</div>
+    <div class="box">CSS Dasar</div>
+    <div class="box">JavaScript Dasar</div>
+    <div class="box">Termux</div>
+    <div class="box">Ubuntu di HP</div>
+    <div class="box">GitHub Pages</div>
+  </div>
+</section>
+
+<section id="quotes" class="section">
+  <h2>Quotes Keren</h2>
+  <div class="quote-card">
+    <p id="quoteText">Loading...</p>
+    <span>— Website by Sianfrey</span>
+  </div>
+</section>
+
 <footer>
   <div class="footer-big">Website ini di buat oleh Riski Kurniawan</div>
   <div class="footer-big">Website by Sianfrey</div>
@@ -92,7 +138,24 @@
     s.textContent="🌸";
     document.body.appendChild(s);
     setTimeout(()=>s.remove(),12000);
-  },400);
+  },350);
+
+  // quotes rotator
+  const quotes=[
+    "Disiplin hari ini adalah kemewahan di masa depan.",
+    "Diam-diam belajar, tiba-tiba jadi jago.",
+    "Bukan tentang cepat, tapi tentang konsisten.",
+    "Keren itu bukan gaya, tapi proses panjang.",
+    "Mimpi besar dimulai dari langkah kecil yang tidak pernah berhenti.",
+    "Yang sabar membangun, akan cepat melesat.",
+    "Skill hari ini adalah harta besok."
+  ];
+  let qi=0; const qt=document.getElementById("quoteText");
+  function changeQuote(){
+    qt.style.opacity=0;
+    setTimeout(()=>{ qt.textContent=quotes[qi]; qt.style.opacity=1; qi=(qi+1)%quotes.length; },300);
+  }
+  changeQuote(); setInterval(changeQuote,4000);
 </script>
 
 </body>
