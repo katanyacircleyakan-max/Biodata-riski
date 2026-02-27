@@ -5,66 +5,58 @@
   <title>Biodata M. Riski Kurniawan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth}
-    body{background:#0b0f1a;color:#e5e7eb;overflow-x:hidden}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="6" fill="pink"/></svg>') 12 12, auto}
+    body{background:#12050f;color:#ffe4f2;overflow-x:hidden}
 
-    /* floating particles */
-    .float{position:fixed;width:10px;height:10px;border-radius:50%;
-      background: radial-gradient(circle,#7dd3fc,#6366f1,transparent);
-      filter: blur(1px);opacity:.6;animation: float 14s linear infinite;z-index:0}
-    .f1{left:10%;animation-duration:18s}.f2{left:35%;animation-duration:22s}
-    .f3{left:60%;animation-duration:16s}.f4{left:85%;animation-duration:20s}
-    @keyframes float{from{bottom:-20px}to{bottom:110%}}
+    /* sakura */
+    .sakura{position:fixed;top:-10%;font-size:18px;opacity:.9;animation: fall linear infinite;z-index:0;pointer-events:none}
+    @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.7}}
 
-    header{position:fixed;top:0;width:100%;background:rgba(11,15,26,.75);
-      backdrop-filter:blur(12px);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999}
-    nav a{color:#e5e7eb;text-decoration:none;margin-left:14px;font-size:14px}
-    nav a:hover{color:#7dd3fc;text-shadow:0 0 10px #7dd3fc}
+    header{position:fixed;top:0;width:100%;background:rgba(18,5,15,.75);backdrop-filter:blur(12px);
+      padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:999}
+    nav a{color:#ffe4f2;text-decoration:none;margin-left:14px;font-size:14px}
+    nav a:hover{color:#f472b6;text-shadow:0 0 10px #f472b6}
 
     .hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
       text-align:center;padding:20px;overflow:hidden;
       background:
-        radial-gradient(circle at 20% 20%, rgba(125,211,252,.15), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(99,102,241,.15), transparent 40%),
-        linear-gradient(180deg,#020617,#0b0f1a)}
+        radial-gradient(circle at 20% 20%, rgba(249,168,212,.2), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(251,113,133,.2), transparent 40%),
+        linear-gradient(180deg,#12050f,#2a0b1e)}
     .glow-ring{position:absolute;width:420px;height:420px;border-radius:50%;
-      border:2px solid rgba(125,211,252,.35);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.08);opacity:.9}}
+      border:2px solid rgba(249,168,212,.45);filter:blur(2px);animation:pulse 6s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
 
-    .brand-big{font-size:3.2em;font-weight:900;letter-spacing:3px;color:#7dd3fc;
-      text-shadow:0 0 25px rgba(125,211,252,.8),0 0 60px rgba(99,102,241,.4);animation: glowIn 1.2s ease-out both;z-index:1}
+    /* glitch neon title */
+    .brand-big{
+      font-size:3.2em;font-weight:900;letter-spacing:3px;color:#f472b6;position:relative;
+      text-shadow:0 0 25px rgba(249,168,212,.9),0 0 60px rgba(251,113,133,.5);
+      animation: glowIn 1.2s ease-out both;
+    }
+    .brand-big::before,.brand-big::after{
+      content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;clip-path:inset(0 0 50% 0)
+    }
+    .brand-big::before{color:#ff5fb3;transform:translate(2px,-2px);animation: glitch 2s infinite linear alternate}
+    .brand-big::after{color:#ff9ad5;transform:translate(-2px,2px);animation: glitch 1.5s infinite linear alternate}
+    @keyframes glitch{
+      0%{clip-path:inset(0 0 80% 0)}20%{clip-path:inset(10% 0 60% 0)}
+      40%{clip-path:inset(40% 0 20% 0)}60%{clip-path:inset(20% 0 40% 0)}
+      80%{clip-path:inset(60% 0 10% 0)}100%{clip-path:inset(80% 0 0 0)}
+    }
     @keyframes glowIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
-    .hero h1{margin-top:10px;font-size:1.6em;z-index:1}
-    .hero p{opacity:.9;z-index:1}
-    .hero button{margin-top:20px;padding:12px 26px;border-radius:999px;border:none;
-      background:linear-gradient(135deg,#7dd3fc,#6366f1);color:#020617;font-weight:800;cursor:pointer;z-index:1;
-      box-shadow:0 10px 30px rgba(99,102,241,.35)}
 
     .section{padding:110px 20px 80px;max-width:1000px;margin:auto;position:relative;z-index:1}
-    .section.dark{background:linear-gradient(180deg,#020617,#020617aa)}
-    h2{text-align:center;margin-bottom:20px;color:#7dd3fc;text-shadow:0 0 10px rgba(125,211,252,.6)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(125,211,252,.18), inset 0 0 30px rgba(99,102,241,.08);
-      backdrop-filter: blur(6px)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .box{background:rgba(255,255,255,.06);padding:18px;border-radius:14px;text-align:center}
-
-    .quotes{text-align:center}
-    .quote-card{max-width:700px;margin:30px auto 0;padding:28px 24px;border-radius:18px;
-      background:rgba(255,255,255,.06);box-shadow:0 0 25px rgba(125,211,252,.25);transition:.3s}
-    .quote-card p{font-size:1.2em;font-style:italic;line-height:1.6}
-
-    footer{background:#020617;padding:25px 15px;color:#9ca3af;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
-    .footer-big{font-size:1.4em;font-weight:800;color:#7dd3fc;text-shadow:0 0 20px rgba(125,211,252,.5)}
+    h2{text-align:center;margin-bottom:20px;color:#f472b6;text-shadow:0 0 10px rgba(249,168,212,.7)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      padding:20px;border-radius:16px;box-shadow:0 0 30px rgba(249,168,212,.25)}
+    footer{background:#12050f;padding:25px 15px;color:#fbcfe8;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;text-align:center}
+    .footer-big{font-size:1.4em;font-weight:800;color:#f472b6;text-shadow:0 0 20px rgba(249,168,212,.7)}
   </style>
 </head>
 <body>
 
-<!-- floating decorations -->
-<div class="float f1"></div><div class="float f2"></div><div class="float f3"></div><div class="float f4"></div>
-
 <header>
-  <div style="font-weight:800;color:#7dd3fc">Website by Sianfrey</div>
+  <div style="font-weight:800;color:#f472b6">Website by Sianfrey</div>
   <nav>
     <a href="#home">Home</a>
     <a href="#profil">Profil</a>
@@ -72,71 +64,13 @@
     <a href="#pengalaman">Pengalaman</a>
     <a href="#skill">Skill</a>
     <a href="#quotes">Quotes</a>
-    <a href="#kontak">Kontak</a>
   </nav>
 </header>
 
 <section id="home" class="hero">
   <div class="glow-ring"></div>
-  <div class="brand-big">WEBSITE BY SIANFREY</div>
+  <div class="brand-big" data-text="WEBSITE BY SIANFREY">WEBSITE BY SIANFREY</div>
   <h1 id="typing"></h1>
-  <p>Website personal profesional milik M. Riski Kurniawan</p>
-  <button onclick="scrollToSection('profil')">Mulai Jelajah</button>
-</section>
-
-<section id="profil" class="section">
-  <h2>Profil Singkat</h2>
-  <div class="card">
-    <p><b>Nama:</b> M. Riski Kurniawan</p>
-    <p><b>Domisili:</b> Wonokusumo, Surabaya</p>
-    <p><b>Status:</b> Pelajar SMK PGRI 6 Surabaya</p>
-    <p><b>Bio:</b> Pelajar yang tertarik dengan dunia IT, website, dan pengembangan aplikasi.</p>
-  </div>
-</section>
-
-<section id="pendidikan" class="section dark">
-  <h2>Riwayat Pendidikan</h2>
-  <div class="grid">
-    <div class="box">
-      <h3>SMP Islam Lilwathon – Surabaya</h3>
-      <p>aku dulu Sekolah di SMP Islam lilwathon guru yang paling aku sukai di SMP ialah buk Anik dan teman paling sukai ialah Fahri manunggal</p>
-    </div>
-    <div class="box">
-      <h3>SMK PGRI 6 Surabaya</h3>
-      <p>Sedang fokus mengembangkan skill IT dan web.</p>
-    </div>
-  </div>
-</section>
-
-<section id="pengalaman" class="section">
-  <h2>Pengalaman & Cerita</h2>
-  <div class="card">
-    <p>aku dulu pernah ikut gang bersama temen temen ku dan aku menjadi ketua di sana</p>
-  </div>
-</section>
-
-<section id="skill" class="section dark">
-  <h2>Skill yang Dipelajari</h2>
-  <div class="grid">
-    <div class="box">HTML & CSS (Dasar)</div>
-    <div class="box">JavaScript (Dasar)</div>
-    <div class="box">Termux & Ubuntu di HP</div>
-    <div class="box">GitHub Pages</div>
-    <div class="box">UI Dasar</div>
-    <div class="box">Problem Solving</div>
-  </div>
-</section>
-
-<section id="quotes" class="section quotes">
-  <h2>Quotes Hari Ini</h2>
-  <div class="quote-card"><p id="quoteText">Loading...</p><span>— Website by Sianfrey</span></div>
-</section>
-
-<section id="kontak" class="section">
-  <h2>Kontak</h2>
-  <div class="card">
-    <p>📧 Email: -</p><p>📱 WhatsApp: -</p><p>🌐 GitHub: -</p>
-  </div>
 </section>
 
 <footer>
@@ -145,21 +79,20 @@
 </footer>
 
 <script>
+  // typing
   const text="Halo, saya M. Riski Kurniawan 👋";let i=0;const typingEl=document.getElementById("typing");
-  (function typing(){if(i<text.length){typingEl.textContent+=text.charAt(i++);setTimeout(typing,70)}})();
-  function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
-  const quotes=[
-    "Disiplin hari ini adalah kemewahan di masa depan.",
-    "Yang terlihat sederhana, sering kali dibangun dengan usaha yang luar biasa.",
-    "Diam-diam belajar, tiba-tiba jadi jago.",
-    "Bukan tentang cepat, tapi tentang konsisten.",
-    "Standar tinggi lahir dari kebiasaan kecil yang dilakukan setiap hari.",
-    "Mimpi besar dimulai dari langkah kecil yang tidak pernah berhenti.",
-    "Keren itu bukan gaya, tapi proses."
-  ];
-  let qi=0;const qt=document.getElementById("quoteText");
-  function changeQuote(){qt.style.opacity=0;setTimeout(()=>{qt.textContent=quotes[qi];qt.style.opacity=1;qi=(qi+1)%quotes.length},300)}
-  changeQuote();setInterval(changeQuote,4000);
+  (function typing(){ if(i<text.length){ typingEl.textContent+=text.charAt(i++); setTimeout(typing,70)} })();
+
+  // sakura generator
+  setInterval(()=>{
+    const s=document.createElement("div");
+    s.className="sakura";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(6+Math.random()*6)+"s";
+    s.textContent="🌸";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),12000);
+  },400);
 </script>
 
 </body>
